@@ -82,7 +82,7 @@ const pd = s => pdate(s,"");
 function dayKey(d){return d.getFullYear()+"-"+d.getMonth()+"-"+d.getDate();}
 function fmtD(d){return d.toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short"})+(d.getFullYear()!==new Date().getFullYear()?" "+d.getFullYear():"");}
 function hm(d){return d.toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"});}
-function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&","<":"<",">":">",'"':"""}[c]));}
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"\x26amp;","<":"\x26lt;",">":"\x26gt;",'"':"\x26quot;"}[c]));}
 function g(r,i){return (r&&r[i]!=null)?String(r[i]):"";}
 function parseTab(name){
   const rows=(RAW&&RAW[name])||[];
